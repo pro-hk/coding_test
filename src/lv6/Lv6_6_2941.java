@@ -17,12 +17,19 @@ public class Lv6_6_2941 {
 
             if(!word.contains(alpha)) continue;
 
-            int length = replaceWord.length();
-            replaceWord = replaceWord.replaceAll(alpha, "");
-            sum += (length - replaceWord.length()) / alphaLength;
+            int length = word.length();
+            int replaceLength = word.replaceAll(alpha, "").length();
+            if(alpha.equals("z=")) {
+                length = word.replaceAll("dz=", "").length();
+                replaceLength = word.replaceAll("dz=", "").replaceAll(alpha, "").length();
+            }
+
+            sum += (length - replaceLength) / alphaLength;
+
+            replaceWord = replaceWord.replaceAll(alpha, " ");
         }
 
-        sum += replaceWord.length();
+        sum += replaceWord.replaceAll(" ", "").length();
         System.out.print(sum);
 
         scanner.close();
