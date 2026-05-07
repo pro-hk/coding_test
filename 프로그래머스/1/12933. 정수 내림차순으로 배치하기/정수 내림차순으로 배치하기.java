@@ -5,7 +5,7 @@ class Solution {
         long answer = 0;
         
         long tmp = n;
-        int len = (""+tmp).length();
+        int len = (int) Math.log10(tmp) + 1;
         long[] array = new long[len];
         
         for(int i = 0; i < len; i++) {
