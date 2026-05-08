@@ -1,23 +1,28 @@
+import java.util.*;
+
 class Solution {
     public String solution(int[] numLog) {
         String answer = "";
         
+        StringBuffer sb = new StringBuffer();
         for(int i = 1; i < numLog.length; i++) {
             switch(numLog[i] - numLog[i - 1]) {
                 case 1 : 
-                    answer += "w";
+                    sb.append("w");
                     break;
                 case -1 : 
-                    answer += "s";
+                    sb.append("s");
                     break;
                 case 10 : 
-                    answer += "d";
+                    sb.append("d");
                     break;
                 case -10 : 
-                    answer += "a";
+                    sb.append("a");
                     break;
             }
         }
+        
+        answer = sb.toString();
         
         return answer;
     }
